@@ -5,15 +5,20 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  username: postgres
-  password: xxxxx #<-- which you have defiend while installing postgresql
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+ adapter: mysql2
+ encoding: utf8
+ database: sakura_development_develop06
+ pool: 5
+ username: root
+ password:
+ socket: /tmp/mysql.sock
+ connect_timeout: 10
+ host: 127.0.0.1
+ port: 3307
 
 development:
   <<: *default
-  database: project_development
+  database: sakura_development_develop06
 
 test:
   <<: *default
